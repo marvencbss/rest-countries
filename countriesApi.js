@@ -1,4 +1,3 @@
-
 document.querySelector('#btPais').addEventListener('click',getPais);
 
 async function getPais() {
@@ -8,17 +7,24 @@ async function getPais() {
     const dados = await res.json();
 
     const listaEnd = document.querySelector('#lsPais');
+
     listaEnd.innerHTML =`
-    <li><strong><em><u>Official name:</u></em></strong> ${dados[0].name.official}</li>
+    <strong><em><u>Official name:</u></em></strong> ${dados[0].name.official}<p>
 
-    <li><strong><em><u>Capital:</u></em></strong>  ${dados[0].capital}</li>
+    <strong><em><u>Capital:</u></em></strong>  ${dados[0].capital}<p>
 
-    <li><strong><em><u>Continent:</u></em></strong>  ${dados[0].continents}</li>
+    <strong><em><u>Continent:</u></em></strong>  ${dados[0].continents}<p>
 
-    <li><strong><em><u>Border countries:</u></em></strong>  ${dados[0].borders}</li>
+    <strong><em><u>Border countries (abreviated):</u></em></strong>  ${dados[0].borders}<p>
 
-    <li><strong><em><u>population:</u></em></strong>  ${dados[0].population}</li>
+    <strong><em><u>population:</u></em></strong>  ${dados[0].population}<p>
 
-    <h4>Flag</h4><img src="${dados[0].flags.png}">
+    <strong><em><u>timezones:</u></em></strong>  ${dados[0].timezones}<p>
+
+    <strong><em><u>Start of week:</u></em></strong>  ${dados[0].startOfWeek}<p>
+    
+    <a href="https://pt.wikipedia.org/wiki/${txPais}">Learn more here</a>
+
+    <h4>Flag:</h4><img src="${dados[0].flags.png}"> <br>
     `;
 }
